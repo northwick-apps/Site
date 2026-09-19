@@ -130,3 +130,6 @@ footer a { color: var(--muted); }
   h1 { font-size: 1.625rem; }
   th, td { padding: 0.4rem; }
 }
+
+.footnotes { font-size: 0.9375rem; color: var(--muted); padding-left: 1.25rem; }
+sup { line-height: 0; }

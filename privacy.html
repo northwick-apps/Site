@@ -19,7 +19,7 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 19 September 2026</p>
+    <p class="meta">Effective date: 19 September 2026 · Last updated: 19 September 2026</p>
 
     <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our first app, <strong>Review Due</strong> for Confluence Cloud.</p>
 
@@ -57,8 +57,8 @@
     <h2>How data is deleted</h2>
     <ul>
       <li><strong>Stop tracking.</strong> Choosing "Stop tracking" on a page deletes that page's record immediately.</li>
-      <li><strong>Page deletion.</strong> When a tracked page is deleted in Confluence, its record is removed.</li>
-      <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian retains Forge storage for that installation for up to 28 days and then deletes it permanently. Reinstalling within that window restores the previous data; after it, the data is gone.</li>
+      <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record within 24 hours: deletion is triggered by the page event, and a daily reconciliation sweep removes any record the event missed.</li>
+      <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian "soft deletes" its Forge hosted storage and retains it for 28 days, after which it is deleted permanently. Reinstalling the app does <strong>not</strong> restore the previous data automatically. Recovery is possible only if you ask us within 21 days of uninstalling: with your consent, we submit a request to Atlassian to re-link the retained data to the new installation, and Atlassian processes it before the 28-day retention period ends.<sup><a href="#fn1" id="ref1">1</a></sup></li>
     </ul>
     <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
 
@@ -73,6 +73,11 @@
 
     <h2>Contact</h2>
     <p>Northwick · <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a></p>
+
+    <h2>Notes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Atlassian, <a href="https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/" rel="noopener">Data lifecycle for Forge-hosted storage</a>: retention of 28 days after uninstallation, no automatic restore on reinstall, and re-linking available on request within 21 days. <a href="#ref1" aria-label="Back to text">↩</a></li>
+    </ol>
   </main>
 
   <footer>
