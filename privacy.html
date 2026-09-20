@@ -19,19 +19,22 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 19 September 2026 · Last updated: 19 September 2026</p>
+    <p class="meta">Effective date: 19 September 2026 · Last updated: 20 September 2026</p>
 
-    <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our first app, <strong>Review Due</strong> for Confluence Cloud.</p>
+    <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our two apps for Confluence Cloud: <strong>Review Due</strong> and <strong>Acknowledge</strong>.</p>
 
     <h2>Summary</h2>
     <ul>
       <li>Review Due stores only a small tracking record per page you choose to track. It never stores page content.</li>
+      <li>Acknowledge stores, per page with an acknowledgement policy, the policy settings and one record per person in the audience showing whether and when they acknowledged. It never stores page content.</li>
       <li>All data lives in Atlassian Forge hosted storage in your Atlassian site's data region. Nothing is sent to Northwick or to any third party.</li>
       <li>The app has no external servers and no network egress.</li>
       <li>We do not collect email addresses, and this website uses no cookies or analytics.</li>
     </ul>
 
-    <h2>What Review Due stores</h2>
+    <h2>Review Due for Confluence</h2>
+
+    <h3>What Review Due stores</h3>
     <p>Review Due runs entirely on <a href="https://developer.atlassian.com/platform/forge/" rel="noopener">Atlassian Forge</a>. For each Confluence page that a user chooses to track, the app stores one record containing:</p>
     <table>
       <thead>
@@ -48,19 +51,58 @@
     </table>
     <p>The app does <strong>not</strong> store page body content, attachments, comments other than the ID of its own reminder comment, email addresses, names, or any data from pages that are not tracked.</p>
 
-    <h2>Where data is stored</h2>
+    <h3>Where data is stored</h3>
     <p>All records are stored in Forge hosted storage, which is operated by Atlassian and located in the same Atlassian region as your Confluence Cloud site. Data residency follows your site's Atlassian data residency settings. Northwick does not operate any servers of its own, the app makes no outbound network calls, and no data leaves Atlassian's infrastructure.</p>
 
-    <h2>Who can see the data</h2>
+    <h3>Who can see the data</h3>
     <p>The review date, owner and status of a tracked page are visible to anyone who can view that page in Confluence. The dashboard shows tracked pages only to users who already have permission to view them. Northwick has no access to your Atlassian site or to any data the app stores.</p>
 
-    <h2>How data is deleted</h2>
+    <h3>How data is deleted</h3>
     <ul>
       <li><strong>Stop tracking.</strong> Choosing "Stop tracking" on a page deletes that page's record immediately.</li>
       <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record within 24 hours: deletion is triggered by the page event, and a daily reconciliation sweep removes any record the event missed.</li>
       <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian "soft deletes" its Forge hosted storage and retains it for 28 days, after which it is deleted permanently. Reinstalling the app does <strong>not</strong> restore the previous data automatically. Recovery is possible only if you ask us within 21 days of uninstalling: with your consent, we submit a request to Atlassian to re-link the retained data to the new installation, and Atlassian processes it before the 28-day retention period ends.<sup><a href="#fn1" id="ref1">1</a></sup></li>
     </ul>
     <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
+
+    <h2>Acknowledge for Confluence</h2>
+    <p>Acknowledge lets a page owner ask a defined audience to confirm that they have read a page. The owner chooses the audience (a Confluence group), a version mode (whether people must acknowledge again after the page changes) and an optional due date. Like Review Due, the app runs entirely on Atlassian Forge.</p>
+
+    <h3>What Acknowledge stores</h3>
+    <p>For each page that has an acknowledgement policy, the app stores one page record and one record per person in the audience:</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Page ID and page title</td><td>Identify the page and label it in the acknowledgement report.</td></tr>
+        <tr><td>Space key and space name</td><td>Group pages by space in the report.</td></tr>
+        <tr><td>Audience group name</td><td>The Confluence group whose members are asked to acknowledge.</td></tr>
+        <tr><td>Policy settings</td><td>The version mode, the optional due date and reminder settings.</td></tr>
+        <tr><td>Per person: Atlassian account ID</td><td>Identifies each member of the audience.</td></tr>
+        <tr><td>Per person: display name at the time of acknowledgement</td><td>Recorded when the person acknowledges, so the report stays readable if the account is later renamed or deactivated.</td></tr>
+        <tr><td>Per person: acknowledged version and timestamp</td><td>Which version of the page the person acknowledged and when.</td></tr>
+        <tr><td>Per person: reminder timestamps</td><td>When reminders were sent, so the app does not remind more often than intended.</td></tr>
+      </tbody>
+    </table>
+    <p>To know who belongs to the audience, the app reads the membership of the chosen group through the Confluence API each time it needs it. It stores per-person records only for people in that audience. The app does <strong>not</strong> store page body content, attachments, email addresses, or any data about pages that have no acknowledgement policy.</p>
+
+    <h3>Reminders</h3>
+    <p>Once a week, the app posts a reminder comment on the page that @mentions the people in the audience who have not yet acknowledged the current version. These comments are ordinary Confluence comments and are visible to anyone who can view the page.</p>
+
+    <h3>Where data is stored</h3>
+    <p>All Acknowledge data is stored in Forge hosted storage on Atlassian's infrastructure, in the same Atlassian region as your Confluence Cloud site. Northwick operates no external servers, the app makes no outbound network calls, and no data leaves Atlassian's infrastructure.</p>
+
+    <h3>Who can see the data</h3>
+    <p>Acknowledgement records are shown only inside Confluence and are governed by Confluence's own page permissions. A site administrator can export a page's records as CSV, which is displayed on screen for the administrator to copy; the app never sends exports anywhere. Northwick has no access to your Atlassian site or to any data the app stores.</p>
+
+    <h3>How data is deleted</h3>
+    <ul>
+      <li><strong>Removal by the page owner.</strong> The page owner can remove a person's record from the acknowledgement report at any time.</li>
+      <li><strong>Page deletion.</strong> When a page with an acknowledgement policy is deleted or moved to the trash, the app first minimises its records to a placeholder in the form "Page &lt;id&gt; (deleted)" with counts only, so that no per-person data remains, and the daily reconciliation sweep then removes the placeholder.</li>
+      <li><strong>Uninstall.</strong> The same 28-day Forge retention rule described for Review Due applies: data is soft-deleted on uninstall, is not restored automatically on reinstall, and can be re-linked only on request within 21 days.<sup><a href="#fn1">1</a></sup></li>
+    </ul>
+    <p>To request deletion of all Acknowledge data held for your site, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL.</p>
 
     <h2>Data we collect through this website and support</h2>
     <p>This website is a static site served by GitHub Pages. It sets no cookies and includes no analytics or third-party scripts. GitHub may log standard web-server data such as IP addresses as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>. If you email us for support, we keep your message and address only as long as needed to resolve your request.</p>
