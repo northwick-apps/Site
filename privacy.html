@@ -60,7 +60,7 @@
     <h3>How data is deleted</h3>
     <ul>
       <li><strong>Stop tracking.</strong> Choosing "Stop tracking" on a page deletes that page's record immediately.</li>
-      <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record within 24 hours: deletion is triggered by the page event, and a daily reconciliation sweep removes any record the event missed.</li>
+      <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record within 24 hours. Two paths do this: once a day a reconciliation pass checks every stored record against Confluence and deletes the ones whose page no longer exists or is in the trash — which also covers pages deleted in bulk or together with their whole space — and opening the dashboard drops the record of any tracked page it finds gone. The app deliberately does <strong>not</strong> subscribe to Confluence's page-deletion events, because listening to them would require write access to your content.</li>
       <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian "soft deletes" its Forge hosted storage and retains it for 28 days, after which it is deleted permanently. Reinstalling the app does <strong>not</strong> restore the previous data automatically. Recovery is possible only if you ask us within 21 days of uninstalling: with your consent, we submit a request to Atlassian to re-link the retained data to the new installation, and Atlassian processes it before the 28-day retention period ends.<sup><a href="#fn1" id="ref1">1</a></sup></li>
     </ul>
     <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
@@ -80,12 +80,12 @@
         <tr><td>Audience group name</td><td>The Confluence group whose members are asked to acknowledge.</td></tr>
         <tr><td>Policy settings</td><td>The version mode, the optional due date and reminder settings.</td></tr>
         <tr><td>Per person: Atlassian account ID</td><td>Identifies each member of the audience.</td></tr>
-        <tr><td>Per person: display name at the time of acknowledgement</td><td>Recorded when the person acknowledges, so the report stays readable if the account is later renamed or deactivated.</td></tr>
         <tr><td>Per person: acknowledged version and timestamp</td><td>Which version of the page the person acknowledged and when.</td></tr>
         <tr><td>Per person: reminder timestamps</td><td>When reminders were sent, so the app does not remind more often than intended.</td></tr>
       </tbody>
     </table>
-    <p>To know who belongs to the audience, the app reads the membership of the chosen group through the Confluence API each time it needs it. It stores per-person records only for people in that audience. The app does <strong>not</strong> store page body content, attachments, email addresses, or any data about pages that have no acknowledgement policy.</p>
+    <p><strong>Names are not stored.</strong> The app keeps the opaque Atlassian account ID only. The report shows names by asking Confluence for them at the moment it is viewed, under each viewer's Atlassian privacy settings, and the optional "Include names" export resolves them on the fly — restricted to the page's audience and its existing records — and writes them nowhere. One consequence is worth stating: if an account is later renamed or deactivated, the report shows whatever Atlassian returns for it then, not a name captured earlier.</p>
+    <p>To know who belongs to the audience, the app reads the membership of the chosen group through the Confluence API and keeps the resulting list of account IDs in a cache for at most 15 minutes. The app does <strong>not</strong> store page body content, attachments, comment text, display names, email addresses, avatars, IP addresses, group membership beyond that 15-minute cache, or any data about pages that have no acknowledgement policy.</p>
 
     <h3>Reminders</h3>
     <p>Once a week, the app posts a reminder comment on the page that @mentions the people in the audience who have not yet acknowledged the current version. These comments are ordinary Confluence comments and are visible to anyone who can view the page.</p>
@@ -98,8 +98,9 @@
 
     <h3>How data is deleted</h3>
     <ul>
-      <li><strong>Removal by the page owner.</strong> The page owner can remove a person's record from the acknowledgement report at any time.</li>
-      <li><strong>Page deletion.</strong> When a page with an acknowledgement policy is deleted or moved to the trash, the app first minimises its records to a placeholder in the form "Page &lt;id&gt; (deleted)" with counts only, so that no per-person data remains, and the daily reconciliation sweep then removes the placeholder.</li>
+      <li><strong>Stop tracking.</strong> Removing the acknowledgement requirement from a page deletes the policy and every record belonging to it immediately.</li>
+      <li><strong>Removal of a single record.</strong> Anyone who can edit the page can remove one person's record from the acknowledgement report at any time.</li>
+      <li><strong>Page deletion.</strong> Records are kept as long as the page's acknowledgement requirement exists, and deleting the page does not by itself delete them. When the app finds that a tracked page is gone, it marks the policy as pointing to a missing page. Nobody can be permission-checked against a page that no longer exists, so the dashboard then shows that entry only to administrators of its space — and to anyone after 30 days — and shows it minimised, as "Page &lt;id&gt; (deleted)" with its counts only, without the title, the group or the creator. Removing that entry from the dashboard deletes the policy and all of its per-person records. To have them removed sooner, stop tracking the page before deleting it, or email us.</li>
       <li><strong>Uninstall.</strong> The same 28-day Forge retention rule described for Review Due applies: data is soft-deleted on uninstall, is not restored automatically on reinstall, and can be re-linked only on request within 21 days.<sup><a href="#fn1">1</a></sup></li>
     </ul>
     <p>To request deletion of all Acknowledge data held for your site, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL.</p>
