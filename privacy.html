@@ -47,7 +47,8 @@
         <tr><td>Page link path</td><td>The path Confluence reports for the page, so a dashboard row can link to it correctly.</td></tr>
         <tr><td>Page owner's Atlassian account ID</td><td>Identifies who is responsible for the review. The app stores the opaque account ID only, not a name or email address.</td></tr>
         <tr><td>Review cadence and dates</td><td>The review interval, the last review date and the next due date.</td></tr>
-        <tr><td>Reminder state and comment ID</td><td>Whether a reminder has been posted and the ID of the reminder comment, so the app does not post duplicates.</td></tr>
+        <tr><td>Review status</td><td>Whether the page is overdue, due soon or fine, stored with the record so the dashboard can sort and filter without recomputing it.</td></tr>
+        <tr><td>Reminder state, dates and comment ID</td><td>Whether a reminder has been posted, the date of the last one, the time an attempt began, and the ID of the reminder comment. Together these are what stop the app posting a second reminder for the same review.</td></tr>
       </tbody>
     </table>
     <p>The app does <strong>not</strong> store page body content, attachments, comments other than the ID of its own reminder comment, email addresses, names, or any data from pages that are not tracked.</p>
@@ -78,6 +79,8 @@
       <tbody>
         <tr><td>Page ID and page title</td><td>Identify the page and label it in the acknowledgement report.</td></tr>
         <tr><td>Space ID, space key and space name</td><td>Group pages by space in the report and the dashboard.</td></tr>
+        <tr><td>Page link path</td><td>The path Confluence reports for the page, so a row in the report links straight to it.</td></tr>
+        <tr><td>Creator's Atlassian account ID, and when the policy was created and last changed</td><td>Identifies who set the acknowledgement requirement up, so the app can mention them once the due date passes. The app stores the opaque account ID only, not a name or email address.</td></tr>
         <tr><td>Audience group ID, group name and group type</td><td>The Confluence group whose members are asked to acknowledge.</td></tr>
         <tr><td>Policy settings</td><td>The version mode, the pinned and last known page version, the optional due date and the reminder setting.</td></tr>
         <tr><td>Cached counts</td><td>The size of the audience, how many have acknowledged, and when those two numbers were last counted — so the report opens without re-reading the group every time.</td></tr>
