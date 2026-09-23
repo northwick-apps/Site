@@ -19,7 +19,7 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 19 September 2026 · Last updated: 22 September 2026</p>
+    <p class="meta">Effective date: 19 September 2026 · Last updated: 23 September 2026</p>
 
     <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our two apps for Confluence Cloud: <strong>Review Due</strong> and <strong>Acknowledge</strong>.</p>
 
@@ -61,7 +61,7 @@
     <h3>How data is deleted</h3>
     <ul>
       <li><strong>Stop tracking.</strong> Choosing "Stop tracking" on a page deletes that page's record immediately.</li>
-      <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record within 24 hours. Two paths do this: once a day a reconciliation pass checks every stored record against Confluence and deletes the ones whose page no longer exists or is in the trash — which also covers pages deleted in bulk or together with their whole space — and opening the dashboard drops the record of any tracked page it finds gone. The app deliberately does <strong>not</strong> subscribe to Confluence's page-deletion events, because listening to them would require write access to your content.</li>
+      <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record. Two paths do this: opening the dashboard removes the record of any tracked page it finds gone, at once; and once a day a reconciliation pass works through the stored records and removes the ones whose page no longer exists or is in the trash — which also covers pages deleted in bulk or together with their whole space. That pass is time-bounded: it holds a reserved share of each day's processing time, and if it cannot reach every record it continues from where it stopped on the next day's run, so on a very large site a full sweep can take more than one day. The app deliberately does <strong>not</strong> subscribe to Confluence's page-deletion events, because listening to them would require write access to your content.</li>
       <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian "soft deletes" its Forge hosted storage and retains it for 28 days, after which it is deleted permanently. Reinstalling the app does <strong>not</strong> restore the previous data automatically. Recovery is possible only if you ask us within 21 days of uninstalling: with your consent, we submit a request to Atlassian to re-link the retained data to the new installation, and Atlassian processes it before the 28-day retention period ends.<sup><a href="#fn1" id="ref1">1</a></sup></li>
     </ul>
     <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
