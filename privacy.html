@@ -52,7 +52,7 @@
       </tbody>
     </table>
     <p>The app does <strong>not</strong> store page body content, attachments, comments other than the ID of its own reminder comment, email addresses, names, or any data from pages that are not tracked.</p>
-    <p><strong>Logs.</strong> The app writes operational logs to Atlassian's Forge logging service: page IDs, an opaque installation identifier, counts, and error messages. Logs never contain page content, names, email addresses or account IDs, they stay inside Atlassian's infrastructure, and Northwick reads them only to diagnose a failure.</p>
+    <p><strong>Logs.</strong> The app writes operational logs to Atlassian's Forge logging service: page IDs, an opaque installation identifier, counts, and error messages. Logs never contain page content, names, email addresses or account IDs, they stay inside Atlassian's infrastructure, and Northwick reads them for two purposes only: to diagnose a failure, and to count, per installation, whether the app is in use (the number of tracked pages, without page or user identity). They are never used for advertising and never shared with anyone.</p>
 
     <h3>Where data is stored</h3>
     <p>All records are stored in Forge hosted storage, which is operated by Atlassian and located in the same Atlassian region as your Confluence Cloud site. Data residency follows your site's Atlassian data residency settings. Northwick does not operate any servers of its own, the app makes no outbound network calls, and no data leaves Atlassian's infrastructure.</p>
@@ -92,7 +92,7 @@
       </tbody>
     </table>
     <p><strong>Names are not stored.</strong> The app keeps the opaque Atlassian account ID only. The report shows names by asking Confluence for them at the moment it is viewed, under each viewer's Atlassian privacy settings, and the optional "Include names" export resolves them on the fly — restricted to the page's audience and its existing records — and writes them nowhere. One consequence is worth stating: if an account is later renamed or deactivated, the report shows whatever Atlassian returns for it then, not a name captured earlier.</p>
-    <p><strong>Logs.</strong> The app writes operational logs to Atlassian's Forge logging service: page IDs, group IDs, an opaque installation identifier, counts, and error messages. Logs never contain page content, names, email addresses or account IDs, they stay inside Atlassian's infrastructure, and Northwick reads them only to diagnose a failure.</p>
+    <p><strong>Logs.</strong> The app writes operational logs to Atlassian's Forge logging service: page IDs, group IDs, an opaque installation identifier, counts, and error messages. Logs never contain page content, names, email addresses or account IDs, they stay inside Atlassian's infrastructure, and Northwick reads them for two purposes only: to diagnose a failure, and to count, per installation, whether the app is in use (the number of tracked pages, without page or user identity). They are never used for advertising and never shared with anyone.</p>
     <p>To know who belongs to the audience, the app reads the membership of the chosen group through the Confluence API and keeps the resulting list of account IDs in a cache for at most 15 minutes. The app does <strong>not</strong> store page body content, attachments, comment text, display names, email addresses, avatars, IP addresses, group membership beyond that 15-minute cache, or any data about pages that have no acknowledgement policy.</p>
 
     <h3>Reminders</h3>
