@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Due FAQ – Northwick</title>
+  <meta name="description" content="Answers to the questions people actually ask about Review Due for Confluence Cloud: permissions, reminders, the daily check, stored data, pricing and a lapsed subscription.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Review Due — questions and answers</h1>
+    <p class="meta">Updated: 25 September 2026</p>
+
+    <p>These are the questions that come up in practice, answered from what the app does today. If yours is not here, write to <a href="mailto:Northwick.apps@gmail.com?subject=Review%20Due%20question">Northwick.apps@gmail.com</a>; the <a href="support.html">Support</a> page says what to include and how quickly we reply. Answers for our other apps are added as each one is listed.</p>
+
+    <h2>Setting a review date</h2>
+
+    <h3>It keeps asking for permission, or I clicked and nothing happened</h3>
+    <p>Review Due asks Confluence, as you, whether you may see and edit each page before it shows or changes anything — that is the "Allow access" prompt. Click <strong>Allow access</strong> in the byline, then <strong>Try again</strong>. If the prompt returns a second time, tell us your site URL and the app version from <em>Manage apps</em>: that means the app is asking for something it has not declared, which is our bug and not your configuration.</p>
+
+    <h3>The byline says "Publish the page first"</h3>
+    <p>Review Due works on published pages. A draft has no permanent page ID for a review date to be attached to. Publish the page and the byline will let you set the date; nothing is lost in the meantime.</p>
+
+    <h3>Who is allowed to set or change a review date?</h3>
+    <p>Anyone who can edit the page. The app asks Confluence for your permission on that specific page before every change, so page restrictions and space permissions decide it and there is nothing extra to configure. People who can only view the page see the review status and cannot change it.</p>
+
+    <h3>Can we change the cycle, the warning period or the reminder frequency?</h3>
+    <p>The review cycle is per page and you choose it in the byline: 30 days, 90 days, 180 days or a year. Two other numbers are the same for every page today and cannot be changed from the interface: a page starts showing as <em>Due soon</em> 14 days before its date, and a reminder goes out at most once a week per page. If either is wrong for how your team works, tell us what you would set them to. We will not promise to build it, but requests like that decide what comes next.</p>
+
+    <h2>Reminders</h2>
+
+    <h3>Who gets the reminder, and where does it appear?</h3>
+    <p>The reminder is a comment at the bottom of the page itself, and it @-mentions the person set as the reviewer for that page. It appears while the review date is within the next 14 days or already past, and at most once every 7 days for the same page. Confluence then notifies the mentioned person the way it notifies them about any mention, so how they hear about it follows their own Confluence notification settings. The comment ends with a short reference line (<code>Ref: review-due/…</code>) — that is how the app recognises its own reminder and never posts the same one twice. You can delete our comments at any time; it changes nothing about the review date.</p>
+
+    <h3>Does it send email?</h3>
+    <p>No. Review Due never sends email. It writes a comment and mentions the reviewer; every notification you receive about it comes from Confluence.</p>
+
+    <h3>What time of day does the check run?</h3>
+    <p>Once a day. Atlassian schedules the exact time for a daily app job, so we do not promise an hour. What the app does guarantee is one pass per day per site, and that a reminder is never sent twice for the same page and day even if a pass is interrupted.</p>
+
+    <h2>The dashboard</h2>
+
+    <h3>What does it show, and can people see pages they should not?</h3>
+    <p>The dashboard lists only pages you are allowed to read — it is filtered per person, so two people on the same site can see different rows. It shows the page, its space, the review date, the status (Overdue, Due soon, OK) and when it was last reviewed, with a counts line above and a toggle for <strong>Only my pages</strong>. It is under <strong>Apps → Review Due</strong>.</p>
+
+    <h3>A page we deleted is still listed, or a page title opens "This page doesn't exist"</h3>
+    <p>Reload the dashboard: it checks every page it is about to show and removes the record of a page that is gone, at once; a daily pass does the same for pages nobody opens the dashboard for. If a row survives a reload, send us the site URL and the page title — that means the check could not reach a conclusion and we will read the app's log.</p>
+    <p>A title that opens "This page doesn't exist" was stored by a version older than 0.4.2. Open that page's byline and save the review date once; the link is rewritten and correct from then on.</p>
+
+    <h2>Data, pricing and subscriptions</h2>
+
+    <h3>What do you store about us, and how do we get it deleted?</h3>
+    <p>For each page you choose to track we store one record: the page ID and title, the space key and name, the link path Confluence reports for the page, the account ID of the chosen reviewer, the review cadence and dates, the computed status, and the bookkeeping for the reminder. No page content, no comments, no attachments, no names and no email addresses. Everything stays in Atlassian's Forge storage in your site's region. The <a href="privacy.html">Privacy Policy</a> lists it field by field and the <a href="security.html">Security</a> page explains how it is protected.</p>
+    <p>To delete the data for one page, click <strong>Stop tracking</strong> in its byline; it is deleted immediately. To delete everything, uninstall the app: Atlassian then holds the app's storage for 28 days before deleting it permanently, and a site admin can ask Atlassian within 21 days to re-link it to a reinstalled copy. We cannot read or recover that retained data ourselves.</p>
+
+    <h3>How much is it?</h3>
+    <p>Free for up to 10 users on your site, then $0.75 per user per month from 11 to 100 users, with lower per-user prices in the larger tiers. Atlassian bills it, not us, and the Marketplace listing shows your exact price for your user count — that listing, not this page, is the authority.</p>
+
+    <h3>What happens if our subscription lapses?</h3>
+    <p>Nothing you have recorded disappears: review dates, owners and the dashboard stay readable. What pauses is changing a review date and the reminder comments, until a site admin renews under <strong>Confluence → Apps</strong>.</p>
+
+    <h3>Does it work on Data Center or Server?</h3>
+    <p>No. Review Due is a Confluence <strong>Cloud</strong> app built on Atlassian Forge, and there is no Data Center or Server version.</p>
+
+    <h2>Still stuck</h2>
+    <p>Write to <a href="mailto:Northwick.apps@gmail.com?subject=Review%20Due%20question">Northwick.apps@gmail.com</a>. We reply within one business day (Sunday to Thursday, Israel time), and we answer from the code: if the app cannot do something, we say so plainly rather than promising it.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>

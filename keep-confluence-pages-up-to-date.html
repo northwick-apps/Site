@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to keep Confluence pages up to date – Northwick</title>
+  <meta name="description" content="What Confluence Cloud gives you to keep pages current — page status, page owner, the content manager, automation and CQL — what each one does not do, and where a review date fits.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>How to keep Confluence pages up to date</h1>
+    <p class="meta">Published: 26 September 2026 · Applies to Confluence Cloud</p>
+
+    <p>Every Confluence site older than a year has the same problem: pages that were right when they were written and that nobody has checked since. The onboarding guide still names a tool the team replaced. The runbook has a step that no longer exists. The policy page says "reviewed annually" and was last edited three years ago. Readers cannot tell which pages to trust, so they stop trusting all of them and ask in chat instead.</p>
+
+    <p>This article goes through what Confluence Cloud itself gives you for this, in the order you should try them, and is honest about what each one does not do. At the end there is one paragraph about our own app. If you delete that paragraph, the article should still be worth your time; that was the test we wrote it to.</p>
+
+    <h2>1. Start with what Confluence already records</h2>
+
+    <p>Confluence knows two dates about every page: when it was created and when it was last changed. Both are searchable. In the search bar, or in a <em>Confluence Query Language</em> (CQL) search, <code>lastmodified</code> filters pages by the date of their last edit, and it accepts relative dates through functions such as <code>endOfDay("-90d")</code> and <code>startOfYear()</code> (<a href="https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/">Advanced searching using CQL</a>, <a href="https://developer.atlassian.com/cloud/confluence/cql-functions/">CQL functions</a>). So a query like</p>
+
+    <pre><code>type = page and space = OPS and lastmodified &lt; endOfDay("-90d")</code></pre>
+
+    <p>lists every page in one space that nobody has touched for three months. Atlassian's own knowledge base describes the same idea for finding content that has not been modified in a period (<a href="https://support.atlassian.com/confluence/kb/how-do-i-obtain-content-that-has-not-been-modified-in-a-certain-period-of-time/">How do I obtain content that has not been modified in a certain period of time?</a>).</p>
+
+    <p><strong>What it does not do.</strong> "Last modified" measures editing, not checking. A page somebody fixed a typo on last week counts as fresh even if its content is two years wrong; a page that is still perfectly correct counts as stale because nobody had a reason to edit it. The query finds candidates for review. It cannot tell you which of them were reviewed and found fine.</p>
+
+    <h2>2. The content manager and its "Last active" filter</h2>
+
+    <p>Space admins have a <strong>content manager</strong> in Confluence Cloud for cleaning up a space (<a href="https://support.atlassian.com/confluence-cloud/docs/manage-your-content-tree/">Clean up a space with the content manager</a>). Its <strong>Last active</strong> dropdown filters pages that have not been viewed, updated or commented on within a timeframe you pick. Atlassian's page states two limits plainly: the filter "won't return a complete list", because it only returns pages that have no child pages (nested content inherits view permissions from its parent, and the filter is built to be safe about that), and bulk archiving or deleting from the manager is a Premium and Enterprise capability, capped at 500 items per attempt (<a href="https://support.atlassian.com/confluence-cloud/docs/archive-pages/">Archive content items</a>).</p>
+
+    <p><strong>What it does not do.</strong> It answers "what is nobody using?", which is the archiving question. It does not answer "what is still correct?", which is the review question. A rarely viewed page can be the one that matters most on the day someone finally needs it, and a page viewed a hundred times a week can be wrong a hundred times a week.</p>
+
+    <h2>3. Page status: tell readers what they are looking at</h2>
+
+    <p>A <strong>page status</strong> is a small coloured label under the title, such as "Draft", "In review" or "Verified" (<a href="https://support.atlassian.com/confluence-cloud/docs/add-a-status-to-your-page-or-blog/">Add a status to your content</a>). Atlassian's description: each status is a colour and a label of up to 20 characters; a space admin allows statuses in a space and can define suggested ones; anyone who can edit the page can set it. Automation can change it for you (see section 5).</p>
+
+    <p>This is the right tool for setting expectations. A reader who sees "Verified" reads on; one who sees "Draft" knows to ask. Use it.</p>
+
+    <p><strong>What it does not do.</strong> A status has no date and no owner. "Verified" says that somebody verified the page once; it does not say when, by whom, or when it is due again, and nothing ever turns it back off. Six months later "Verified" is still there, and it is now the most misleading word on the page.</p>
+
+    <h2>4. Page owner: make one person responsible</h2>
+
+    <p>Every page has an <strong>owner</strong>. By default it is the person who created the page, and ownership can be transferred to someone else as a way of saying who the "point person" for that content is, for example when the original author leaves the team (<a href="https://support.atlassian.com/confluence-cloud/docs/transfer-content-item-ownership-from-one-user-to-another/">Transfer content item ownership from one user to another</a>). Set it deliberately on the pages that matter; a page whose owner left the company two years ago has, in practice, no owner.</p>
+
+    <p><strong>What it does not do.</strong> Owning a page does not remind the owner of anything. There is no date attached to ownership and no notification when a page has gone too long without a look. The owner field tells you whom to ask. It does not ask them.</p>
+
+    <h2>5. Automation: chain the pieces together</h2>
+
+    <p>Confluence automation lets you build flows from a trigger, optional conditions and actions (<a href="https://support.atlassian.com/confluence-cloud/docs/what-is-confluence-automation/">Confluence automation</a>, <a href="https://support.atlassian.com/cloud-automation/docs/triggers-in-confluence-automation/">Triggers</a>, <a href="https://support.atlassian.com/cloud-automation/docs/conditions-in-confluence-automation/">Conditions</a>, <a href="https://support.atlassian.com/cloud-automation/docs/actions-in-confluence-automation/">Actions</a>). Triggers include events such as a page being published and scheduled times such as "Tuesday at 10am". A CQL condition restricts a flow to pages matching a query. Actions include changing a page's status and transferring its ownership. Check Atlassian's pages for which plan your site needs and how many runs it allows; those limits change, and we would rather send you to the source than misquote it.</p>
+
+    <p>Put together, the pieces above can give you something real: a scheduled flow that finds pages with <code>lastmodified</code> older than a threshold and sets their status to "Needs review", for instance. That is a good baseline and costs nothing beyond the plan you already have.</p>
+
+    <p><strong>What it does not do.</strong> The flow still runs on the edit date, so it inherits the problem from section 1: it flags pages that were edited long ago, not pages that were <em>checked</em> long ago, and it clears the flag on any edit, including the one someone makes to remove the flag. It also has no memory of a review: when the owner reads the page, decides it is fine and changes nothing, the automation has no way to know that, and the page comes back in the next run. What is missing is a fact that Confluence does not store: the date a human last confirmed the page is correct, and the date they are due to do it again.</p>
+
+    <h2>6. Where a review date fits</h2>
+
+    <p>A review date closes that gap. It is not an edit date and not a status; it is a promise attached to the page: <em>this person will confirm this content by this date, and then again every N days</em>. With it, the questions above have direct answers. What needs attention? Every page whose review date has passed. Is this page trustworthy? Its last review was in June, its next is in December. Who do I ask? The reviewer named on it. Editing does not reset it, and confirming a page that needed no change is a first-class action rather than an invisible one.</p>
+
+    <p>Teams that need this for an audit — a quality system that requires its documented information to be reviewed at set intervals, a security policy that must be re-attested every year — usually reach for a document-management app with states, approvals and workflows. If you need approvals, that is the right call. If you need only the date, the owner and a list of what is overdue, the workflow suite is a lot of product for one column.</p>
+
+    <h2>What we make</h2>
+
+    <p>Northwick Apps makes <strong>Review Due</strong>, a Confluence Cloud app that adds exactly that column: a review date, an owner and a cadence on any page, a comment that mentions the owner when the date comes due, and one dashboard of everything overdue. It stores page metadata and the reviewer's account id, never page content, and runs entirely on Atlassian's infrastructure. It is submitted to the Atlassian Marketplace, and this paragraph will carry the listing link the day it is public; the <a href="faq.html">FAQ</a> says what it does and does not do, and the <a href="security.html">Security</a> page says what we do and do not have.</p>
+
+    <p class="meta">Sources are Atlassian's own documentation, linked inline. Atlassian changes its products often; if a description above no longer matches what you see, tell us at <a href="mailto:Northwick.apps@gmail.com?subject=Article%20correction">Northwick.apps@gmail.com</a> and we will correct it.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
