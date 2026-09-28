@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document review cycles for ISO-style audits in Confluence – Northwick</title>
+  <meta name="description" content="What ISO 9001 and ISO 27001 ask of documented information and policy reviews, what an auditor usually wants to see, and how to run review cycles in Confluence Cloud with native features first.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Document review cycles for ISO-style audits in Confluence</h1>
+    <p class="meta">Published: 27 September 2026 · Applies to Confluence Cloud</p>
+
+    <p>If your quality manual, security policies or procedures live in Confluence, sooner or later an auditor will pick one and ask two questions: <em>when was this last reviewed, and how do you know?</em> The first is about a date. The second is about evidence. Confluence is good at the first kind of record when the page was edited, and silent when it was checked and left alone, which is the most common outcome of a good review.</p>
+
+    <p>This article explains what the two standards most teams meet actually ask for, what an auditor usually wants to see, and how to set up review cycles with what Confluence Cloud already gives you. One paragraph at the end is about our own app; the rest is meant to be useful without it.</p>
+
+    <p><strong>A note on sources.</strong> ISO standards are sold by ISO and national bodies, and we have not quoted the standard text. What follows summarises clause titles and requirements as consultants and training providers quote them, linked inline. Your certification body and your own copy of the standard are the authority; this is not compliance advice.</p>
+
+    <h2>1. What the standards ask for</h2>
+
+    <p><strong>ISO 9001 (quality).</strong> Clause 7.5 covers <em>documented information</em>. Clause 7.5.2, on creating and updating it, is commonly summarised as: documents are reviewed and approved for suitability and adequacy before release, and reviewed and updated as necessary (<a href="https://www.thecoresolution.com/clause-7-5-2-iso-90012015-explained">Core Business Solutions on 7.5.2</a>, <a href="https://www.isms.online/iso-9001/clause-7-5-documented-information/">ISMS.online on clause 7.5</a>). Clause 7.5.3, on control, asks that documented information is available and suitable where it is needed, protected, and that changes are controlled, which in practice means version control and knowing which version is current (<a href="https://blog.auditortrainingonline.com/blog/explaining-iso-9001-clause-7.5.3-control-of-documented-information">Auditor Training Online on 7.5.3</a>).</p>
+
+    <p><strong>ISO 27001 (information security).</strong> Annex A control 5.1 in the 2022 edition is quoted as requiring that the information security policy and topic-specific policies are defined, approved by management, published, communicated, acknowledged, and <em>reviewed at planned intervals and if significant changes occur</em> (<a href="https://www.isms.online/iso-27001/annex-a-2022/5-1-information-security-policies-2022/">ISMS.online on A.5.1</a>, <a href="https://hightable.io/iso-27001-annex-a-5-1-policies/">High Table on A.5.1</a>).</p>
+
+    <p>Two things are worth noticing. First, neither standard, as quoted, sets a fixed interval: you choose it. An annual review of policies is the usual practice, and many teams review procedures that change often on a shorter cycle. Second, "planned intervals" means the plan is part of what gets audited. Writing "reviewed annually" in a policy and then not doing it is worse than choosing a longer interval and keeping to it.</p>
+
+    <h2>2. What an auditor usually wants to see</h2>
+
+    <p>Across the consultant guides above, the same three pieces of evidence come up:</p>
+
+    <ul>
+      <li><strong>A plan.</strong> Which documents are under review control, how often each is reviewed, and who is responsible. A register (a table of documents, owners and intervals) is the classic form.</li>
+      <li><strong>A record of each review, including the ones that changed nothing.</strong> Guides on A.5.1 stress that a review must be evidenced even when no change is made (<a href="https://hightable.io/iso-27001-annex-a-5-1-policies/">High Table</a>). "The page was not edited, so we must have looked at it and been happy" is not evidence.</li>
+      <li><strong>Change control.</strong> When a document did change, who changed it, when, and which version was in force on a given date.</li>
+    </ul>
+
+    <p>Confluence covers the third piece well out of the box. The first two take some set-up.</p>
+
+    <h2>3. Change control: page history already does most of it</h2>
+
+    <p>Every Confluence page keeps its version history: each version with its author and date, a comparison view between any two versions, and restore, which copies an old version back as the newest one without deleting what came after it (<a href="https://support.atlassian.com/confluence-cloud/docs/create-edit-and-publish-a-page/">Create, update, and manage written content</a>). The <strong>change history macro</strong> shows version number, author, date and the version comment inline on the page itself (<a href="https://support.atlassian.com/confluence-cloud/docs/insert-the-change-history-macro/">Insert the change history macro</a>), which is a neat way to put a document's revision table where an auditor expects it.</p>
+
+    <p>Two habits make this history far more useful: write a short <em>version comment</em> whenever you publish a controlled document ("Annual review: updated section 4, retention period"), and restrict editing on controlled documents to the people responsible for them. Atlassian's documentation also describes deleting individual versions from the history, so treat the history as a good record, not as a tamper-proof one; if your auditor needs the latter, that is a question for your whole platform, not for one page.</p>
+
+    <h2>4. The plan: a register in Confluence</h2>
+
+    <p>The simplest register is a page with a table: document, owner, review interval, last review, next review. Link every row to the document. Set the <strong>page owner</strong> of each controlled document to the person in the register (<a href="https://support.atlassian.com/confluence-cloud/docs/transfer-content-item-ownership-from-one-user-to-another/">Transfer content item ownership</a>), so that the page itself says whom to ask. Add a <strong>page status</strong> such as "Approved" to documents in force (<a href="https://support.atlassian.com/confluence-cloud/docs/add-a-status-to-your-page-or-blog/">Add a status to your content</a>).</p>
+
+    <p>This works, and for a dozen documents it is enough. It has one weakness: the register is a separate page that somebody has to keep in step with reality. The "next review" column does not turn red by itself, and nobody is told when it passes.</p>
+
+    <h2>5. Reminders: automation, with one gap</h2>
+
+    <p>Confluence automation can run on a schedule, filter pages with a CQL condition and act on them, for example by changing their status (<a href="https://support.atlassian.com/confluence-cloud/docs/what-is-confluence-automation/">Confluence automation</a>, <a href="https://support.atlassian.com/cloud-automation/docs/triggers-in-confluence-automation/">Triggers</a>, <a href="https://support.atlassian.com/cloud-automation/docs/conditions-in-confluence-automation/">Conditions</a>, <a href="https://support.atlassian.com/cloud-automation/docs/actions-in-confluence-automation/">Actions</a>). A monthly flow that finds controlled pages with <code>lastmodified</code> older than a year (<a href="https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/">CQL</a>) and sets their status to "Review needed" is a reasonable baseline. Check Atlassian's pages for which plan you need and how many runs it includes.</p>
+
+    <p>The gap is the one section 2 warned about. Automation sees edit dates. A policy reviewed last month and found correct was not edited, so it still looks a year old, and it is flagged again at the next run. The workaround teams use is to make a small edit on every review, such as updating a "Last reviewed" line in the page, so that the edit date and the version comment become the review record. It works, and it has a cost: every review creates a new version whose only change is the date, and the record depends on everyone remembering the ritual.</p>
+
+    <h2>6. Recording a no-change review</h2>
+
+    <p>Whatever tools you use, decide in writing how a review that changes nothing is recorded, because that is the record auditors ask for and Confluence does not keep by default. The common options, from lightest to heaviest:</p>
+
+    <ul>
+      <li>a version with the comment "Annual review, no change" (the ritual edit above);</li>
+      <li>a comment on the page by the reviewer, dated by Confluence, saying what was checked;</li>
+      <li>a row in the register with the date and the reviewer's name;</li>
+      <li>a document-management app with review states and approvals, where the review is an action that the app logs.</li>
+    </ul>
+
+    <p>If you need formal approvals with sign-off chains before a document is released, the last option is the right one, and it is a larger product with a larger price. If your procedure only needs a date, an owner, a reminder and a list of what is overdue, the lighter options cover it.</p>
+
+    <h2>What we make</h2>
+
+    <p>Northwick Apps makes <strong>Review Due</strong>, a Confluence Cloud app for the lighter end of that list. On any page it adds a review date, a reviewer and a cycle (30, 90 or 180 days, or a year); a daily check comments on the page and mentions the reviewer when the date is near or past; <em>Mark as reviewed</em> records today as the last review and moves the next date forward without editing the page, so a no-change review no longer looks like neglect; and one dashboard lists every tracked page with its status, due date and last review, filtered to what each person may read. Honestly, for audits: it keeps the date of the <em>latest</em> review, not a history of every past one, and it has no approvals. Keep a reviewer comment or a register row if your auditor wants the full trail. It is submitted to the Atlassian Marketplace, and this paragraph will carry the listing link the day it is public; the <a href="faq.html">FAQ</a> and the <a href="security.html">Security</a> page say exactly what it does and stores.</p>
+
+    <p class="meta">Atlassian features are described from Atlassian's documentation and the ISO requirements from the consultant pages linked inline. If something above no longer matches what you see, tell us at <a href="mailto:Northwick.apps@gmail.com?subject=Article%20correction">Northwick.apps@gmail.com</a> and we will correct it.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
