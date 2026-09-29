@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to see who has read a Confluence page – Northwick</title>
+  <meta name="description" content="Getting a group to confirm they have read a policy, handbook or SOP page in Confluence Cloud: what analytics, approvals and task lists give you, what each does not, and what a read confirmation adds.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>How to see who has read a Confluence page</h1>
+    <p class="meta">Published: 28 September 2026 · Applies to Confluence Cloud</p>
+
+    <p>The request usually arrives the same way. A new code of conduct, a security policy, a changed procedure goes up in Confluence, and someone from HR, security or quality asks: <em>can we get everyone to confirm they have read it, and can we prove who has not?</em> A company-wide announcement does not answer that, and neither does a view counter.</p>
+
+    <p>This article goes through what Confluence Cloud gives you for this, in the order worth trying, and says what each option does not do. It ends with one paragraph about the app we make for it. If you delete that paragraph, the rest should still help you; that is the test we wrote it to.</p>
+
+    <h2>1. First decide which question you are answering</h2>
+
+    <p>"Who has read this page?" hides three different questions, and the right tool depends on which one you have:</p>
+
+    <ul>
+      <li><strong>Who opened it?</strong> A view, measured by Confluence. Useful for reach, useless as evidence: opening a page is not reading it.</li>
+      <li><strong>Who signed off on it?</strong> An approval by a few named people before or after publishing. The content is being judged.</li>
+      <li><strong>Who confirmed they read it?</strong> An acknowledgement by everyone in a group, often dozens or hundreds of people, recorded per person and per version. The content is not being judged; the reader is saying "I have read this".</li>
+    </ul>
+
+    <p>Policy attestation, handbook sign-off and "read and understood" for procedures are the third question. Most of the frustration in community threads on this topic comes from trying to answer it with a tool built for the first or the second.</p>
+
+    <h2>2. Analytics: who opened the page</h2>
+
+    <p>On Standard, Premium and Enterprise plans, the byline shows how many people have viewed a page, and selecting it opens an analytics summary with views and unique viewers over time (<a href="https://support.atlassian.com/confluence-cloud/docs/view-insights-on-pages/">Content insights and analytics</a>). On Premium and Enterprise, the summary also lists viewers, marks each as <em>Engaged</em> (viewed for 20 seconds or longer) or <em>Brief</em>, and shows the latest version they viewed and when (<a href="https://support.atlassian.com/confluence-cloud/docs/view-analytics-to-see-how-content-is-performing/">View Confluence analytics</a>). Admins control which groups may see analytics (<a href="https://support.atlassian.com/confluence-cloud/docs/set-viewing-permissions-for-analytics/">Control which groups can use analytics</a>).</p>
+
+    <p><strong>What it does not do.</strong> It records presence, not intent. Twenty seconds on a twelve-page policy is not reading it, and a person who read it carefully on a colleague's screen does not appear at all. It also lists who viewed, not who <em>should</em> have and did not; you have to compare it against your group yourself. As a source for "did people get to the page?" it is good. As evidence that a person accepted a policy, an auditor or an HR lead will rarely take it.</p>
+
+    <h2>3. Approvals: a few people sign off</h2>
+
+    <p>Confluence Cloud now has native <strong>approvals</strong>, announced as an open beta (<a href="https://community.atlassian.com/forums/Confluence-Cloud-Admins-articles/Approvals-in-Confluence-now-on-Open-Beta/ba-p/3260508">Approvals in Confluence, now on Open Beta</a>). A space admin turns on statuses with approvals for the space; a requester asks named reviewers to approve a page; each reviewer responds with <em>Approve</em> or <em>Request changes</em>, optionally with a comment; and an activity log keeps past approval cycles, who approved or asked for changes, and when (<a href="https://support.atlassian.com/confluence-cloud/docs/request-and-manage-approvals-in-confluence/">Request and manage approvals in Confluence</a>). Community write-ups report it on Premium and Enterprise, with a limit on the number of approvers per request in the order of ten (<a href="https://community.atlassian.com/forums/Confluence-articles/Confluence-Approvals-Beta-the-four-gates-between-quot-available/ba-p/3278244">Confluence Approvals (Beta): the four gates</a>); check Atlassian's page for your plan, since beta terms change.</p>
+
+    <p><strong>What it does not do.</strong> It is built for judging content, not for confirming reading. The people in it are a handful of named reviewers, not a group of 200 employees, and "Request changes" is the wrong second button for someone who has simply read the code of conduct. If your procedure needs the policy owner and a manager to approve before publication, use it for exactly that, and pair it with one of the options below for the readers.</p>
+
+    <h2>4. Task lists: the do-it-yourself read confirmation</h2>
+
+    <p>The workaround you will find most often in community answers is a task list at the bottom of the page: one checkbox per person, each assigned with an @mention. Assigned tasks show up in each person's task list, and a <strong>task report</strong> macro on another page can list the ones still open (<a href="https://support.atlassian.com/confluence-cloud/docs/insert-the-task-report-macro/">Insert the task report macro</a>). Some teams hide the list inside a hidden page properties macro so it does not clutter the page (<a href="https://community.atlassian.com/forums/Confluence-questions/How-to-create-quot-Read-amp-Acknowledge-quot-function-on-a-page/qaq-p/2369262">community thread</a>).</p>
+
+    <p>For a team of eight and a policy that changes once a year, this is a perfectly good answer. Try it before buying anything.</p>
+
+    <p><strong>What it does not do.</strong> Three things, and they grow with the group. The list is typed by hand, so when someone joins the team, nobody is asked. A tick is not tied to a version: when the policy changes, the old ticks still stand unless someone clears them all by hand, and then the evidence of who read the old version is gone. And a checkbox is page content, so whoever can tick their own box can usually tick someone else's; the page history shows who did it, but an auditor has to dig for it.</p>
+
+    <h2>5. What an acknowledgement record needs</h2>
+
+    <p>Put those limits side by side and the shape of a real read confirmation falls out. For each page that must be read, it needs:</p>
+
+    <ul>
+      <li><strong>An audience that follows your directory</strong>: a Confluence group, so new joiners are asked without anyone editing the page.</li>
+      <li><strong>A record per person</strong>: who confirmed, when, and <em>which version</em> of the page they confirmed.</li>
+      <li><strong>A rule for new versions</strong>: either a new version asks everyone again, or a minor edit keeps earlier confirmations valid. Both are legitimate; the choice should be written down.</li>
+      <li><strong>The missing names</strong>: a list of who in the group has not confirmed, not only who has.</li>
+      <li><strong>A nudge</strong> for the people on that list, that does not depend on someone remembering to send it.</li>
+      <li><strong>An export</strong> that can be handed to an auditor or HR without screenshots.</li>
+    </ul>
+
+    <p>If you only need the first two for a small team, a task list and a disciplined owner cover them. Past that, it is a tool's job.</p>
+
+    <h2>What we make</h2>
+
+    <p>Northwick Apps makes <strong>Acknowledge</strong>, a Confluence Cloud app built to that list. On any page, you pick the Confluence group that must read it, choose whether a new version re-requests acknowledgement or accepts confirmations from a version you name onward, and add an optional due date. Readers get an <em>I have read this</em> button under the title that records the page version they confirmed and when. The acknowledgement report lists every person in the group with their status, version and time, and exports as CSV; a dashboard lists every tracked page; and, with reminders switched on, a weekly comment on the page @mentions whoever has not confirmed. It works with groups of up to 5,000 members, stores account IDs, versions and timestamps rather than page content or names, and runs entirely on Atlassian's infrastructure. It is being prepared for the Atlassian Marketplace; this paragraph will carry the listing link the day it is public. Until then, our <a href="security.html">Security</a> page says what we do and do not have.</p>
+
+    <p class="meta">Atlassian features are described from Atlassian's documentation and Community posts, linked inline; approvals are in beta and change often. If something above no longer matches what you see, tell us at <a href="mailto:Northwick.apps@gmail.com?subject=Article%20correction">Northwick.apps@gmail.com</a> and we will correct it.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
