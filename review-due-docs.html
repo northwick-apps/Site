@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Due documentation – Northwick</title>
+  <meta name="description" content="How to install and use Review Due for Confluence Cloud: set a review date and owner on a page, read the dashboard, understand the reminders, mark a page as reviewed, stop tracking, and what happens to your data.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Review Due — documentation</h1>
+    <p class="meta">Updated: 1 October 2026 · Applies to Review Due for Confluence Cloud</p>
+
+    <p>Review Due adds a review date, an owner and a review cadence to any Confluence page, shows every tracked page on one dashboard, and reminds the owner on the page itself when the date is near or past. This page describes how to install it and how to use it. It says what the app does today; if something here does not match what you see, write to <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a>.</p>
+
+    <h2>1. Install</h2>
+    <p>A Confluence site admin installs the app from its Atlassian Marketplace listing with <strong>Get it now</strong>, or from <strong>Settings &gt; Apps &gt; Find new apps</strong> inside Confluence. There is nothing to configure after installation: no admin screen, no field to add to a template. Sites with up to 10 users use the app free; larger sites are billed by Atlassian per user per month (see the <a href="faq.html">FAQ</a> for the tiers).</p>
+
+    <h2>2. Set a review date on a page</h2>
+    <ol>
+      <li>Open a <strong>published</strong> page. A draft has no permanent page ID, so the app shows "Publish the page first" until the page is published.</li>
+      <li>Under the title, in the byline, click <strong>Review status</strong>.</li>
+      <li>The first time, Confluence asks you to let the app act as you: click <strong>Allow access</strong>. The app uses this to ask Confluence, before every read or change, whether you may see and edit that specific page. Page restrictions and space permissions decide; there is nothing to configure in the app.</li>
+      <li>Pick the <strong>page owner</strong> (the person who will be reminded), the <strong>next review date</strong>, and a <strong>cadence</strong>: every 30, 90 or 180 days, or every year.</li>
+      <li>Click <strong>Start tracking</strong>.</li>
+    </ol>
+    <p>The byline then shows the state on the page, for example <em>Review due 2026-08-12 · every 180 days · last reviewed 2026-02-12</em>, coloured green (OK), yellow (due within 14 days) or red (overdue). Anyone who can edit the page can set or change its review date; anyone who can view it can see the status.</p>
+
+    <h2>3. Mark a page as reviewed</h2>
+    <p>When the owner has checked that the page is still correct, they click <strong>Mark as reviewed</strong> in the byline. The app records today as the last review date and moves the next review date forward by the page's cadence. Editing the page does not count as a review: Confluence already records edits, and Review Due deliberately tracks the check, not the edit.</p>
+
+    <h2>4. The dashboard</h2>
+    <p>Open <strong>Apps &gt; Review Due</strong> in the Confluence top bar. The dashboard lists every tracked page you are allowed to read, with its space, review date, status (<strong>Overdue</strong>, <strong>Due soon</strong>, <strong>OK</strong>) and last review date, sorted by review date; each title links to the page. A counts line above the table reads, for example, <em>6 tracked · 2 overdue · 1 due soon · 3 fresh</em>. Two toggles narrow the list: <strong>Show only pages that need attention</strong> (on by default) and <strong>Only my pages</strong>.</p>
+    <p>The list is filtered per person: the app checks your permission on each page before showing the row, so two people on the same site can see different rows. When the dashboard finds that a tracked page has been deleted or moved to the trash, it removes that page's record at once.</p>
+
+    <h2>5. Reminders</h2>
+    <p>Once a day the app checks every tracked page on the site. When a page is overdue, or due within the next 14 days, and has an owner, the app posts a comment on the page that @-mentions the owner, who is then notified by Confluence in the usual way. A page is reminded at most once a week, so a forgotten document does not become a stream of comments. The app never sends email of its own. Atlassian schedules the daily job, so the exact hour is not promised.</p>
+
+    <h2>6. Stop tracking a page</h2>
+    <p>Click <strong>Stop tracking</strong> in the page's byline. The page's record is deleted immediately; nothing on the page itself changes. Earlier reminder comments stay on the page like any other comment and can be deleted by whoever may delete comments there.</p>
+
+    <h2>7. Permissions, in one paragraph</h2>
+    <p>Before the app shows or changes anything about a page, it asks Confluence whether <em>you</em> may view or edit that page, and it fails closed: if the check cannot be completed, the action is refused. The daily reminder job runs as the app, within the permissions the app declares, and never as a person. The scopes the app asks for are listed on the Marketplace listing and justified one by one on the <a href="security.html">Security</a> page.</p>
+
+    <h2>8. Your data</h2>
+    <p>For each tracked page the app stores the page ID and title, the space key and name, the page link path, the Atlassian account ID of the owner, the cadence, the review dates and status, and the bookkeeping for the reminder it posted. It stores no page content, no comments, no names and no email addresses. Everything lives in Atlassian's Forge storage in your site's region; nothing leaves Atlassian. Stop tracking deletes a page's record immediately; uninstalling the app makes Atlassian soft-delete the app's storage and delete it permanently after 28 days. The <a href="privacy.html">Privacy Policy</a> lists every field.</p>
+
+    <h2>9. Subscription and billing</h2>
+    <p>Billing is by Atlassian, through your site's subscription. If the subscription lapses, nothing you recorded disappears: review dates, owners and the dashboard stay readable. Changing a review date and the reminder comments pause until the subscription is active again.</p>
+
+    <h2>10. Getting help</h2>
+    <p>The <a href="faq.html">FAQ</a> answers the questions that come up in practice. For anything else, see the <a href="support.html">Support</a> page: email Northwick.apps@gmail.com and you get an answer within one business day (Sunday to Thursday, Israel time).</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
