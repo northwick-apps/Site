@@ -19,7 +19,7 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 19 September 2026 · Last updated: 23 September 2026</p>
+    <p class="meta">Effective date: 19 September 2026 · Last updated: 1 October 2026</p>
 
     <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our two apps for Confluence Cloud: <strong>Review Due</strong> and <strong>Acknowledge</strong>.</p>
 
@@ -89,6 +89,7 @@
         <tr><td>Per person who acknowledged: Atlassian account ID</td><td>Identifies the person who acknowledged. The app stores the opaque account ID only, not a name or email address.</td></tr>
         <tr><td>Per person who acknowledged: version and timestamp</td><td>Which version of the page the person acknowledged and when.</td></tr>
         <tr><td>Per person who acknowledged: version history</td><td>The versions the person acknowledged earlier, at most 50 entries per person; the oldest is dropped beyond that.</td></tr>
+        <tr><td>Per person who acknowledged: removal time and who removed it</td><td>If a page editor removes someone's acknowledgement, the app keeps the record and marks it: when it was removed, and the opaque Atlassian account ID of the editor who removed it. The record is marked rather than deleted so that the report cannot be silently emptied; the person is shown as not having acknowledged, and the removal is also an entry in their version history. "Stop tracking" deletes every record of the page outright.</td></tr>
       </tbody>
     </table>
     <p><strong>Names are not stored.</strong> The app keeps the opaque Atlassian account ID only. The report shows names by asking Confluence for them at the moment it is viewed, under each viewer's Atlassian privacy settings, and the optional "Include names" export resolves them on the fly — restricted to the page's audience and its existing records — and writes them nowhere. One consequence is worth stating: if an account is later renamed or deactivated, the report shows whatever Atlassian returns for it then, not a name captured earlier.</p>
@@ -107,7 +108,7 @@
     <h3>How data is deleted</h3>
     <ul>
       <li><strong>Stop tracking.</strong> Removing the acknowledgement requirement from a page deletes the policy and every record belonging to it immediately.</li>
-      <li><strong>Removal of a single record.</strong> Anyone who can edit the page can remove one person's record from the acknowledgement report at any time.</li>
+      <li><strong>Removal of a single record.</strong> Anyone who can edit the page can remove one person's acknowledgement from the report at any time. The record itself is kept and marked with the time of the removal and the account ID of the editor who removed it, and the person is shown as not having acknowledged — an acknowledgement record that could be deleted without trace would be worth nothing to an auditor. To delete the records themselves, stop tracking the page, which removes the requirement and all of them at once.</li>
       <li><strong>Page deletion.</strong> Records are kept as long as the page's acknowledgement requirement exists, and deleting the page does not by itself delete them. When the app finds that a tracked page is gone, it marks the policy as pointing to a missing page. Nobody can be permission-checked against a page that no longer exists, so the dashboard then shows that entry only to administrators of its space — and to anyone after 30 days — and shows it minimised, as "Page &lt;id&gt; (deleted)" with its counts only, without the title, the group or the creator. Removing that entry from the dashboard deletes the policy and all of its per-person records. To have them removed sooner, stop tracking the page before deleting it, or email us.</li>
       <li><strong>Uninstall.</strong> The same 28-day Forge retention rule described for Review Due applies: data is soft-deleted on uninstall, is not restored automatically on reinstall, and can be re-linked only on request within 21 days.<sup><a href="#fn1">1</a></sup></li>
     </ul>
