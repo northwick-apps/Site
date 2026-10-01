@@ -52,6 +52,7 @@
       </tbody>
     </table>
     <p>The app does <strong>not</strong> store page body content, attachments, comments other than the ID of its own reminder comment, email addresses, names, or any data from pages that are not tracked.</p>
+    <p><strong>Two keys that belong to no page.</strong> The daily pass stores its own position so that it can continue where it stopped on a large site: one key for the reminder pass and one for the deletion-reconciliation pass. Each holds a cursor and timestamps — no page identity, no user identity — and they are named here because everything the app stores belongs on this page, not only the per-page records above.</p>
     <p><strong>Logs.</strong> The app writes operational logs to Atlassian's Forge logging service: page IDs, an opaque installation identifier, counts, and error messages. Logs never contain page content, names, email addresses or account IDs, they stay inside Atlassian's infrastructure, and Northwick reads them for two purposes only: to diagnose a failure, and to count, per installation, whether the app is in use (the number of tracked pages, without page or user identity). They are never used for advertising and never shared with anyone.</p>
 
     <h3>Where data is stored</h3>
