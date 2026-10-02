@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acknowledge FAQ – Northwick</title>
+  <meta name="description" content="Answers to the questions people ask about Acknowledge for Confluence Cloud: who must acknowledge, page versions, reminders, the report and export, removed records, stored data, pricing and a lapsed subscription.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Acknowledge — questions and answers</h1>
+    <p class="meta">Updated: 1 October 2026 · Applies to Confluence Cloud</p>
+
+    <p>Acknowledge asks a group of people to confirm they have read a page — a policy, a handbook, an SOP — and keeps the record of who confirmed which version, and when. It is a Confluence Cloud app from Northwick and is being prepared for the Atlassian Marketplace. The answers below describe what the app does today, written from its code. Answers about our other app are on the <a href="faq.html">Review Due FAQ</a>; if your question is not on either page, write to <a href="mailto:Northwick.apps@gmail.com?subject=Acknowledge%20question">Northwick.apps@gmail.com</a> and the <a href="support.html">Support</a> page says what to include and how quickly we reply.</p>
+
+    <h2>Setting up a requirement</h2>
+
+    <h3>Who can set a requirement on a page, and who can see the report?</h3>
+    <p>Anyone who can edit the page can set the requirement, change it, or stop tracking. The full report — every person in the group with their status, the version they acknowledged and when — is visible to people who can edit that page and to administrators of its space, and those are the people who can export it. Someone who is only in the group sees their own status on the page and nothing about anyone else. The dashboard under <strong>Apps → Acknowledge</strong> lists only pages you are allowed to read, so two people on the same site can see different rows.</p>
+
+    <h3>The byline says "Publish the page first"</h3>
+    <p>Acknowledge works on published pages. While a page is a draft, Confluence has not given it a permanent ID yet, so there is nothing for an acknowledgement to be recorded against. Publish the page and the byline will let you set the requirement.</p>
+
+    <h3>Someone edited the page — does everyone have to acknowledge again?</h3>
+    <p>That is your choice per page, in the requirement's settings. <strong>Latest version</strong> — the default, and the right setting for a policy — means a new version of the page puts everyone back to <em>Please acknowledge</em>, and the report shows which version each person signed. <strong>Pinned version</strong> means people must have acknowledged that version or later, so ordinary edits like a typo or a broken link reset nothing. You can move the pin later from the report. Whichever you choose, the report and the export always name both the version each person acknowledged and the version currently required.</p>
+
+    <h3>Our group has more than 5,000 people</h3>
+    <p>Acknowledge records an audience of up to 5,000 members per group and will not set a requirement on a group larger than that. The way forward today is a smaller group — often the right one anyway, since an acknowledgement asked of everyone tends to be acknowledged by no one. If the limit is in your way, tell us: we write every such request down, and we will not promise a change or a date for one.</p>
+
+    <h3>Does it work on blog posts, on several pages at once, or on Data Center?</h3>
+    <p>Acknowledge is a Confluence <strong>Cloud</strong> app built on Atlassian Forge, and there is no Data Center or Server version. A requirement is set one page at a time, from that page's byline. For anything else in that list, tell us what you are trying to do and we will answer from the app rather than guess — if it is not supported, we say so plainly.</p>
+
+    <h2>Acknowledging a page</h2>
+
+    <h3>It keeps asking for permission, or I clicked and nothing happened</h3>
+    <p>Acknowledge asks Confluence, as you, whether you may read or edit each page before it shows or changes anything — that is the "Allow access" prompt. Click <strong>Allow access</strong>, then <strong>Try again</strong>. If the prompt comes back a second time, send us your site URL and the app version from <em>Manage apps</em>: a prompt that repeats after consent means the app is asking for something it has not declared, which is our bug and not your configuration.</p>
+
+    <h3>I clicked "I have read this" and it says I am not in the group</h3>
+    <p>When you click, the app re-checks with Confluence whether you are in the group that page asks to acknowledge, and records nothing if you are not. Two things cause the message: you are genuinely outside that group, in which case nothing is expected of you and the page will say <em>Not required</em>; or you were added to the group very recently and the app is still holding the membership list it read a few minutes ago, which it refreshes within about fifteen minutes. If it is still wrong after that, send us the page and the group name.</p>
+
+    <h3>"Acknowledge could not check the group membership right now"</h3>
+    <p>That means the app asked Confluence who is in the group and did not get a usable answer, so it deliberately recorded nothing rather than record an acknowledgement it could not verify. Try again in a minute. If it keeps happening, send us the page and the time and we will read the app's log — for a compliance record, missing is better than possibly wrong, which is why it fails this way.</p>
+
+    <h2>Reminders</h2>
+
+    <h3>Who gets reminded, when, and how often?</h3>
+    <p>The reminder is a comment at the bottom of the page itself, and it @-mentions people in the group who have not yet acknowledged the current version. It starts no earlier than seven days after the requirement is set, and the same page is never reminded more than once every seven days. One comment mentions at most 25 people; when more are outstanding it says how many more, and the next reminder mentions the next 25, so everyone is reached in turn. After the due date the comment also mentions whoever set the requirement up, so the page owner knows it is overdue. You can turn reminders off for a page in its settings, and you can delete our comments at any time — it changes nothing about who has acknowledged.</p>
+
+    <h3>Does it send email?</h3>
+    <p>No. Acknowledge never sends email. It writes a comment and mentions people; every notification you receive about it comes from Confluence, under your own notification settings.</p>
+
+    <h3>What time of day does it run?</h3>
+    <p>Once a day. Atlassian schedules the exact time for a daily app job and that time moves, so we do not promise an hour. What the app guarantees is one pass per day per site, and that the same page is not reminded twice for the same round even if a pass is interrupted.</p>
+
+    <h2>The report and the export</h2>
+
+    <h3>Can we get this out for an auditor?</h3>
+    <p>Yes. The report exports as a CSV with one row per person in the group: the page, the space, the group, the person, their status, which version they acknowledged and when, the current and required versions, the due date and the time of the export. By default it identifies people by their Atlassian account ID. Tick <strong>Include names</strong> before exporting and the app resolves display names — that option exists so an export can be pseudonymous when your privacy rules ask for that, and named when an auditor asks for that.</p>
+
+    <h3>We removed someone's record and they are still in the report</h3>
+    <p>That is deliberate. Removing a record does not erase it: it marks it as removed, with the time and who removed it, and puts that person back to <em>Please acknowledge</em>. The report and the export still show that they had acknowledged, which version, and that it was removed — because an acknowledgement record that can be silently deleted is worth nothing to an auditor. If you want a page's records gone entirely, use <strong>Stop tracking</strong>: that deletes the requirement and every record for that page immediately.</p>
+
+    <h3>A page we deleted is still on the dashboard</h3>
+    <p>A tracked page that has been deleted stops showing its title, group and creator and appears as <code>Page &lt;id&gt; (deleted)</code> with its counts, so the requirement can be cleaned up. Administrators of its space can remove the row straight away; after 30 days anyone who can see the dashboard can. If a row survives that, send us the site URL and the row.</p>
+
+    <h2>Data, pricing and subscriptions</h2>
+
+    <h3>What do you store about us, and how do we get it deleted?</h3>
+    <p>For each page with a requirement we store one record: the page ID and title, the space ID, key and name, the link path Confluence reports for the page, the ID and name of the group that must acknowledge, the version mode and the versions involved, the optional due date, whether reminders are on, the account ID of the person who set it up, timestamps, the reminder bookkeeping, cached counts, and a timestamp if the page is found deleted. For each person who acknowledges we store the page ID, their account ID, the space ID, the highest version they acknowledged and when, a capped per-version history, and — if a page editor removed it — when and who removed it. No page content, no comments, no attachments, no email addresses. Everything stays inside Atlassian's Forge storage in your site's region; we run no servers and no database of our own. The <a href="privacy.html">Privacy Policy</a> lists it field by field and the <a href="security.html">Security</a> page explains how it is protected.</p>
+    <p>To delete everything for one page, click <strong>Stop tracking</strong>: the requirement and all its records go immediately. To delete everything, uninstall the app — Atlassian then holds the app's storage for 28 days before deleting it permanently, and a site admin can ask Atlassian within 21 days to re-link it to a reinstalled copy. We cannot read or recover that retained data ourselves.</p>
+
+    <h3>How much is it?</h3>
+    <p>Free for up to 10 users on your site, then $0.95 per user per month from 11 to 100 users, with lower per-user prices in the larger tiers. Atlassian bills it, not us, and the Marketplace listing shows your exact price for your user count — that listing, not this page, is the authority.</p>
+
+    <h3>What happens if our subscription lapses?</h3>
+    <p>Nothing you have already collected disappears or becomes unreadable. The report, the dashboard and the export keep working, people can still acknowledge pages, and you can still stop tracking a page or remove a record. What pauses is setting up a new requirement, changing an existing one, and the reminder comments, until a site admin renews under <strong>Confluence → Apps</strong>. A record you have already collected is your data, so the app never holds it behind a subscription.</p>
+
+    <h2>Still stuck</h2>
+    <p>Write to <a href="mailto:Northwick.apps@gmail.com?subject=Acknowledge%20question">Northwick.apps@gmail.com</a>. We reply within one business day (Sunday to Thursday, Israel time), and we answer from the code: if the app cannot do something, we say so plainly rather than promising it.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
