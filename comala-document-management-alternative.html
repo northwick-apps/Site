@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Comala Document Management alternative for a small team – Northwick</title>
+  <meta name="description" content="What Comala Document Management does, when a workflow and approval engine is the right tool, what Confluence Cloud already gives you for nothing, and what a small team that only needs a review date and an owner can use instead.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">Northwick</a>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>A Comala Document Management alternative for a small team</h1>
+    <p class="meta">Published: 2 October 2026 · Applies to Confluence Cloud</p>
+
+    <p>We make a small Confluence app in the same corner of the market, so read this knowing who wrote it. We are not going to tell you that the established app is bloated: it is a serious product that does things ours does not do at all. What we can do honestly is describe what it is for, what Confluence already gives you for nothing, and what is left over for a team of five to fifty people who want one thing — to know which pages are overdue for a read-through, and who owns them.</p>
+
+    <h2>1. What Comala Document Management is</h2>
+    <p>Comala Document Management, by Appfire, is a document-control app: workflows, reviews, approvals and states applied to Confluence pages and spaces. Its <a href="https://marketplace.atlassian.com/apps/142/comala-document-management" rel="noopener">Marketplace listing</a>, read on 2 October 2026, describes global workflows applied to pages and spaces, multiple approvals, automated state changes, labels and publishing, e-signature authentication, workflows assigned to users or groups, expiry dates "to keep content current", custom versioning for records, a Document Activity audit trail, and workflow metadata displayed on the page. The same listing showed 5,997 installs and a rating of 4.7 out of 5 from 176 reviews, and carried Atlassian's Enterprise Certified mark. It is a mature app with a long history on Server and Data Center and a documented migration path to Cloud.</p>
+    <p>One line on that listing deserves repeating, because it is more honest than most marketing in this category: "Appfire does not claim compliance or certification for any of our tools. Beyond technical elements, compliant systems must apply procedural and administrative controls." No app makes you ISO-compliant. The tool records what people did; the procedure is yours.</p>
+
+    <h2>2. When it is the right tool, and you should stop reading</h2>
+    <p>Pick the workflow engine, theirs or another one of its size, when any of these is true:</p>
+    <ul>
+      <li><strong>An approval has to be enforced, not merely recorded.</strong> A page must not be publishable until two named roles have signed, and the app must hold that gate.</li>
+      <li><strong>You need e-signatures</strong> — an authenticated act of approval, not a comment saying "looks good".</li>
+      <li><strong>You need states on the page</strong>: Draft, In review, Approved, Expired, with transitions and conditions, visible to readers and reportable across a space.</li>
+      <li><strong>An auditor wants the full activity trail</strong> of every edit and every approval, per document, exportable, with versioning you control.</li>
+      <li><strong>Your governance is already written</strong> in terms of workflows, and the cost of the app is small beside the cost of re-writing the procedure.</li>
+    </ul>
+    <p>If two or more of those describe you, nothing further down this page is an alternative to it. Buy the bigger tool, and budget for the configuration: a workflow engine is only as good as the workflow somebody sits down and designs.</p>
+
+    <h2>3. What Confluence Cloud already gives you for nothing</h2>
+    <p>Before any app, the native options. Each is genuinely useful and each stops short in the same place.</p>
+    <ul>
+      <li><strong>Page status</strong> — a coloured label on the page, such as <em>Reviewed</em> or <em>Out of date</em> (<a href="https://support.atlassian.com/confluence-cloud/docs/add-a-status-to-your-page-or-blog/" rel="noopener">documentation</a>). It is a label, not a date: nothing becomes overdue and nothing reminds anybody.</li>
+      <li><strong>Page owner</strong> — Confluence records an owner per page and ownership can be transferred in bulk (<a href="https://support.atlassian.com/confluence-cloud/docs/transfer-content-item-ownership-from-one-user-to-another/" rel="noopener">documentation</a>). It answers "whose page is this", not "when was it last checked".</li>
+      <li><strong>The content manager's activity view</strong> — sort and filter the content tree by last activity (<a href="https://support.atlassian.com/confluence-cloud/docs/manage-your-content-tree/" rel="noopener">documentation</a>). Last edited is not last reviewed: a page nobody has needed to change in a year may be perfectly current, or quietly wrong.</li>
+      <li><strong>CQL search</strong> — <code>lastmodified &lt; now("-365d")</code> finds pages untouched for a year (<a href="https://developer.atlassian.com/cloud/confluence/advanced-searching-using-cql/" rel="noopener">CQL</a>, <a href="https://support.atlassian.com/confluence/kb/how-do-i-obtain-content-that-has-not-been-modified-in-a-certain-period-of-time/" rel="noopener">knowledge-base article</a>). Same limit, plus someone has to remember to run it.</li>
+      <li><strong>Confluence automation</strong> — scheduled rules with conditions and actions, including commenting on a page (<a href="https://support.atlassian.com/confluence-cloud/docs/what-is-confluence-automation/" rel="noopener">overview</a>, <a href="https://support.atlassian.com/cloud-automation/docs/triggers-in-confluence-automation/" rel="noopener">triggers</a>, <a href="https://support.atlassian.com/cloud-automation/docs/actions-in-confluence-automation/" rel="noopener">actions</a>). This is the closest a site admin gets for free, and on a small scale it works: a scheduled rule, a CQL condition, a comment. What it does not give you is a per-page review date that someone can set from the page itself, a cadence per page, or one list of what is overdue across spaces — because there is no field holding "reviewed on" for a rule to read.</li>
+    </ul>
+    <p>That missing field is the whole of the gap. Everything native measures <em>change</em>; a review is a statement that somebody <em>looked</em>, which leaves no edit behind.</p>
+
+    <h2>4. The question that decides it</h2>
+    <p>Not "which app has more features". Ask instead: <strong>does your process need to be enforced, or recorded?</strong></p>
+    <ul>
+      <li>Enforced — approvals gate publication, states are mandatory, signatures are required: a workflow engine, and a person to own its configuration.</li>
+      <li>Recorded — somebody should re-read this page every quarter, and we want to see what is overdue and who owns it: a single-purpose app, or automation plus discipline.</li>
+    </ul>
+    <p>Teams of five to fifty almost always start in the second row and buy for the first, then configure a workflow nobody follows. The cheaper mistake is the other way round: start with the date and the owner, and move up when an auditor actually asks for signatures.</p>
+
+    <h2>5. What we make</h2>
+    <p>Northwick Apps makes <strong>Review Due</strong>, a Confluence Cloud app for the second row and nothing else. You set a review date, an owner and a cadence (30, 90 or 180 days, or a year) in the page byline; a page shows as due soon within 14 days of its date and overdue after it; one comment on the page mentions the owner at most once a week while it is due or overdue; and one dashboard lists every tracked page you are allowed to read, with what is overdue first. It stores page metadata and the reviewer's account ID — never page content — and runs entirely inside Atlassian's infrastructure with no servers of ours.</p>
+    <p>What it deliberately does not do, so nobody buys it by mistake: <strong>no approvals, no e-signatures, no workflow states, no gate on publishing, and no trail of every edit</strong>. It keeps the page's owner and the latest review date — not who performed each review, and not the previous dates: marking a page reviewed overwrites the date rather than appending to a log. If your auditor needs a signed approval, Review Due is not the app, and this page just told you which kind is.</p>
+    <p>It is being prepared for the Atlassian Marketplace, and this paragraph will carry the listing link the day it is public. Until then the <a href="review-due-docs.html">documentation</a> describes every screen, the <a href="faq.html">FAQ</a> answers what it does and does not do, and the <a href="security.html">Security</a> page says plainly what we have and have not got — no SOC 2, no third-party penetration test, no published DPA.</p>
+    <p>A neighbouring case, if what you actually need is a record that people <em>read</em> a policy rather than a date for re-reading it: we also make <a href="acknowledge-docs.html">Acknowledge</a>, which asks a group to confirm they have read a page and keeps who confirmed which version, and the article on <a href="who-has-read-this-confluence-page.html">how to see who has read a Confluence page</a> compares the native options for that.</p>
+
+    <h2>6. Why there is no price table here</h2>
+    <p>Prices on the Marketplace change, and a comparison table copied into a web page goes stale silently. Comala Document Management's pricing for your user count is on <a href="https://marketplace.atlassian.com/apps/142/comala-document-management" rel="noopener">its listing</a>; ours will be on ours, and Atlassian bills both. The honest comparison is not price per user, it is whether you will use what you are buying.</p>
+    <p>And if you already run Comala and your team uses the workflows: stay. Swapping an app that holds your approval history for a smaller one is a cost, not a saving.</p>
+
+    <h2>Questions</h2>
+    <p>Write to <a href="mailto:support@northwick-apps.com?subject=Review%20Due%20question">support@northwick-apps.com</a>. We answer from the code: if an app cannot do something, we say so.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Northwick · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a> · <a href="security.html">Security</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </footer>
+</body>
+</html>
