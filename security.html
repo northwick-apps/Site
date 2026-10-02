@@ -49,7 +49,8 @@
       <li>Every change is a small commit with unit tests that must pass before it is merged; the test suite runs on every push.</li>
       <li>Deployments are made by continuous integration, never from a personal machine. The credentials that deploy our apps exist only as repository secrets; no person copies them anywhere.</li>
       <li>Code reaches a development environment first, then a staging copy, and only then production, which is what the Marketplace serves you.</li>
-      <li>Every change is reviewed by an independent automated reviewer on a fixed schedule, and its findings are triaged under written service levels: a decision with evidence, then a fix or a tracked follow-up. Security findings are fixed before the next production deploy.</li>
+      <li>Every change is reviewed by an independent automated reviewer on a fixed schedule, and its findings are triaged under written service levels: a decision with evidence, then a fix or a tracked follow-up.</li>
+      <li>A security review of the exact code being shipped precedes every production deploy, and the pipeline blocks the deploy until that review exists. Findings rated medium or above are fixed before that deploy; lower findings stay tracked as open issues until they are fixed.</li>
     </ul>
 
     <h2>Reporting a vulnerability</h2>
