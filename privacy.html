@@ -67,7 +67,7 @@
       <li><strong>Page deletion.</strong> When a tracked page is deleted or moved to the trash in Confluence, the app removes its tracking record. Two paths do this: opening the dashboard removes the record of any tracked page it finds gone, at once; and once a day a reconciliation pass works through the stored records and removes the ones whose page no longer exists or is in the trash — which also covers pages deleted in bulk or together with their whole space. That pass is time-bounded: it holds a reserved share of each day's processing time, and if it cannot reach every record it continues from where it stopped on the next day's run, so on a very large site a full sweep can take more than one day. The app deliberately does <strong>not</strong> subscribe to Confluence's page-deletion events, because listening to them would require write access to your content.</li>
       <li><strong>Uninstall.</strong> When the app is uninstalled from a site, Atlassian "soft deletes" its Forge hosted storage and retains it for 28 days, after which it is deleted permanently. Reinstalling the app does <strong>not</strong> restore the previous data automatically. Recovery is possible only if you ask us within 21 days of uninstalling: with your consent, we submit a request to Atlassian to re-link the retained data to the new installation, and Atlassian processes it before the 28-day retention period ends.<sup><a href="#fn1" id="ref1">1</a></sup></li>
     </ul>
-    <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
+    <p>To request deletion of all data held for your site, or to ask about anything in this policy, email <a href="mailto:support@northwick-apps.com">support@northwick-apps.com</a> from an address associated with your Atlassian site and include your site URL. We will confirm the request and guide you through deletion, which you can also complete yourself by stopping tracking on each page or by uninstalling the app.</p>
 
     <h2>Acknowledge for Confluence</h2>
     <p>Acknowledge lets a page owner ask a defined audience to confirm that they have read a page. The owner chooses the audience (a Confluence group), a version mode (whether people must acknowledge again after the page changes) and an optional due date. Like Review Due, the app runs entirely on Atlassian Forge.</p>
@@ -113,7 +113,7 @@
       <li><strong>Page deletion.</strong> Records are kept as long as the page's acknowledgement requirement exists, and deleting the page does not by itself delete them. When the app finds that a tracked page is gone, it marks the policy as pointing to a missing page. Nobody can be permission-checked against a page that no longer exists, so the dashboard then shows that entry only to administrators of its space — and to anyone after 30 days — and shows it minimised, as "Page &lt;id&gt; (deleted)" with its counts only, without the title, the group or the creator. Removing that entry from the dashboard deletes the policy and all of its per-person records. To have them removed sooner, stop tracking the page before deleting it, or email us.</li>
       <li><strong>Uninstall.</strong> The same 28-day Forge retention rule described for Review Due applies: data is soft-deleted on uninstall, is not restored automatically on reinstall, and can be re-linked only on request within 21 days.<sup><a href="#fn1">1</a></sup></li>
     </ul>
-    <p>To request deletion of all Acknowledge data held for your site, email <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a> from an address associated with your Atlassian site and include your site URL.</p>
+    <p>To request deletion of all Acknowledge data held for your site, email <a href="mailto:support@northwick-apps.com">support@northwick-apps.com</a> from an address associated with your Atlassian site and include your site URL.</p>
 
     <h2>Data we collect through this website and support</h2>
     <p>This website is a static site served by GitHub Pages. It sets no cookies and includes no analytics or third-party scripts. GitHub may log standard web-server data such as IP addresses as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>. If you email us for support, we keep your message and address only as long as needed to resolve your request.</p>
@@ -125,7 +125,7 @@
     <p>If we change this policy, we will update the effective date above. Material changes that affect an app will also be noted in that app's Marketplace listing.</p>
 
     <h2>Contact</h2>
-    <p>Northwick · <a href="mailto:Northwick.apps@gmail.com">Northwick.apps@gmail.com</a></p>
+    <p>Northwick · <a href="mailto:support@northwick-apps.com">support@northwick-apps.com</a></p>
 
     <h2>Notes</h2>
     <ol class="footnotes">
