@@ -19,7 +19,7 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: 19 September 2026 · Last updated: 1 October 2026</p>
+    <p class="meta">Effective date: 19 September 2026 · Last updated: 2 October 2026</p>
 
     <p>This policy explains what data Northwick apps process, where it is stored, who can see it, and how it is deleted. It applies to all apps published by Northwick on the Atlassian Marketplace unless an app-specific policy says otherwise. The sections below describe our two apps for Confluence Cloud: <strong>Review Due</strong> and <strong>Acknowledge</strong>.</p>
 
@@ -104,7 +104,7 @@
     <p>All Acknowledge data is stored in Forge hosted storage on Atlassian's infrastructure, in the same Atlassian region as your Confluence Cloud site. Northwick operates no external servers, the app makes no outbound network calls, and no data leaves Atlassian's infrastructure.</p>
 
     <h3>Who can see the data</h3>
-    <p>The acknowledgement report is shown only inside Confluence, and the app refuses to return it unless the person asking can edit that page or administer its space — so page editors and space administrators see who has acknowledged and who has not, and they can export those rows as CSV, which is displayed on screen for them to copy; the app never sends exports anywhere. Anyone else who can view the page sees only their own status and their own acknowledgement history, never another person's. Northwick has no access to your Atlassian site or to any data the app stores.</p>
+    <p>The acknowledgement report is shown only inside Confluence, and the app refuses to return it unless the person asking can edit that page, or administers the space the page is in <em>and</em> can view the page — both checked with Confluence, as that person, on every request. So page editors and space administrators see who has acknowledged and who has not, with each person's history, and they can export those rows as CSV, which is displayed on screen for them to copy; the app never sends exports anywhere. A space administrator whom a page restriction excludes does not see the report, and after a page moves to another space the administrators of its former space no longer see it. Anyone else who can view the page sees only their own status, never another person's. The audience list is cached for up to 15 minutes, so someone removed from the group can still acknowledge the page for that long. Northwick has no access to your Atlassian site or to any data the app stores.</p>
 
     <h3>How data is deleted</h3>
     <ul>
