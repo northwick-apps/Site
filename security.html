@@ -21,7 +21,7 @@
 
   <main>
     <h1>Security</h1>
-    <p class="meta">Updated: 2 October 2026</p>
+    <p class="meta">Updated: 27 October 2026</p>
 
     <p>Northwick is a small independent studio. This page says exactly how our Confluence Cloud apps are built and run, what we can and cannot see, and how to report a vulnerability. It says what is true today, not what we intend to do; where we have nothing, it says so.</p>
 
@@ -31,11 +31,13 @@
 
     <h2>What is stored, and where</h2>
     <p>App data lives in Forge storage, provided by Atlassian, in your site's region. The full field-by-field list is in the <a href="privacy.html">Privacy Policy</a> and it is short: page and space identifiers, an Atlassian account ID for the person responsible, dates, versions, counts, and the app's own bookkeeping. <strong>No page content, no comments, no attachments, no names and no email addresses.</strong></p>
-    <p>When you stop tracking a page, that page's record is deleted immediately. When you uninstall an app, Atlassian holds its storage for 28 days and then deletes it permanently; we cannot read or recover data in that window.</p>
+    <p>When you stop tracking a page, that page's data is deleted at once. On a page that carries thousands of acknowledgements, Acknowledge deletes for about fifteen seconds per click and tells you it has not finished, so the button may have to be pressed again; it continues from where it stopped, and the page's reminders are switched off from the first click.</p>
+    <p>When you uninstall an app, Atlassian soft-deletes its storage, holds it for 28 days and then deletes it permanently. There is no automatic restore if you reinstall, and <strong>we have no way to read that retained data</strong> — but that is not the same as it being unrecoverable: if you ask us <strong>within 21 days</strong> of uninstalling, we submit a request to Atlassian, with your consent, to re-link the retained data to the new installation. The <a href="privacy.html">Privacy Policy</a> states the same rule, and Atlassian's own reference is <a href="https://developer.atlassian.com/platform/forge/storage-reference/hosted-storage-data-lifecycle/">Data lifecycle for Forge-hosted storage</a>. Until 2026-10-27 this page said only that we cannot read or recover the data, which could have discouraged a customer from asking inside that window.</p>
 
     <h2>Who can see what</h2>
     <ul>
-      <li><strong>Every read and every change is permission-checked against Confluence, as you.</strong> Before an app shows or changes anything about a page, it asks Confluence whether your account may view or edit that specific page, and it fails closed: if the check errors, access is refused rather than granted. Page restrictions and space permissions therefore decide what each person sees, with nothing extra to configure.</li>
+      <li><strong>Every read and every change you ask for is permission-checked against Confluence, as you.</strong> Before an app shows or changes anything about a page, it asks Confluence whether your account may view or edit that specific page, and it fails closed: if the check errors, access is refused rather than granted. Page restrictions and space permissions therefore decide what each person sees, with nothing extra to configure.</li>
+      <li><strong>Two things the apps do without asking that question, named here so the sentence above is exact</strong> (read from the shipped code on 2026-10-27). First, the short status line Confluence shows under a page title is rendered from the app's own stored record, with no second check: Confluence renders that element only on a page you can already open, and it tells you nothing about any other page — in Acknowledge it reports only your own status. Second, while the Review Due dashboard loads, the app asks Atlassian — as the app, not as you — whether each page you are allowed to see still exists, and deletes its own record for a page Confluence reports as gone, so a deleted page stops appearing. Neither path can show you anything about a page you may not open, and nothing else is deleted on the app's own authority.</li>
       <li><strong>Background work runs as the app, never as a person</strong>, and is limited to what the app's declared scopes allow.</li>
       <li><strong>Scopes are declared per call and kept minimal.</strong> Each scope in the manifest names the single API call that needs it. Adding one is a new major version of the app: Atlassian then requires every site to re-consent before the new version runs.</li>
       <li>Northwick staff have <strong>no access to your site</strong>. We cannot read your pages, your users or your app data; we see only what you send us in a support request.</li>
